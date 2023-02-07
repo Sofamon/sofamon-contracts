@@ -40,3 +40,5 @@ Contract successfully verified
 ```
 
 Contract Address: `0x0F5d840F8C97cA1C38E410f62639De66d9B28418`
+
+Base Token URI: `https://gateway.pinata.cloud/ipfs/QmR8KKSUyYwoY6jJ2y9tfaXmHtj9ZjaQbcVTMZRkBFKkNb/`
