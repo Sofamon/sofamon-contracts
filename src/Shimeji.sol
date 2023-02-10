@@ -9,7 +9,7 @@ contract Shimeji is ERC1155, Ownable {
     using ECDSA for bytes32;
 
     string public baseMetadataURI;
-    mapping(bytes => bool) public signatureUsed;
+    // mapping(bytes => bool) public signatureUsed;
 
     constructor() ERC1155() {
     }
@@ -33,17 +33,21 @@ contract Shimeji is ERC1155, Ownable {
       return string(bab);
     }
 
-    function mint(uint256 tokenId, uint256 amount, address to, uint256 nonce, bytes memory signature) public {
-        bytes32 hash = keccak256(abi.encodePacked(tokenId, amount, to, nonce));
-        bytes32 messageHash = hash.toEthSignedMessageHash();
-        address signer = messageHash.recover(signature);
-        require(signer == owner(), "Not signed by owner");
-        require(!signatureUsed[signature] , "Signature already used");
-        signatureUsed[signature] = true;
-        _mint(to, tokenId, amount, "");
-    }
+    // function mint(uint256 tokenId, uint256 amount, address to, uint256 nonce, bytes memory signature) public {
+    //     bytes32 hash = keccak256(abi.encodePacked(tokenId, amount, to, nonce));
+    //     bytes32 messageHash = hash.toEthSignedMessageHash();
+    //     address signer = messageHash.recover(signature);
+    //     require(signer == owner(), "Not signed by owner");
+    //     require(!signatureUsed[signature] , "Signature already used");
+    //     signatureUsed[signature] = true;
+    //     _mint(to, tokenId, amount, "");
+    // }
 
-    function mint(uint256 tokenId, uint256 amount, address to) public onlyOwner {
+    // function mint(uint256 tokenId, uint256 amount, address to) public onlyOwner {
+    //     _mint(to, tokenId, amount, "");
+    // }
+
+    function mint(uint256 tokenId, uint256 amount, address to) public {
         _mint(to, tokenId, amount, "");
     }
 
