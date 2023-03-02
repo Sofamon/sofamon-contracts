@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.9;
+pragma solidity ^0.8.13;
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "solmate/tokens/ERC721.sol";
 import "solmate/utils/LibString.sol";
@@ -32,6 +32,7 @@ contract SofamonNouns is ERC721, Ownable {
     mapping(uint256 => uint16) public levelOf;
 
     function getLevelOf(uint256 id) public view virtual returns (uint16) {
+        require(_ownerOf[id] != address(0), "NOT MINTED");
         return levelOf[id];
     }
 

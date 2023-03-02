@@ -1,0 +1,19 @@
+{
+    "name": "Sofamon Nouns",
+    "image": "ipfs://QmPG5jTLQX6j3ckzStdSTb1gLJKkNW4xhtJ8vs5mVPk5PJ",
+    "attributes": [
+        {
+            "trait_type": "Type",
+            "value": "Nouns"
+        },
+        {
+            "trait_type": "Character",
+            "value": "Nouns Shark"
+        },
+        {
+            "trait_type": "Collection",
+            "value": "Nouns"
+        }
+    ],
+    "level": 0
+}
