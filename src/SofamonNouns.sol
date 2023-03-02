@@ -44,10 +44,6 @@ contract SofamonNouns is ERC721, Ownable {
     /*///////////////////////////////////////////////////////////////
                                CONSTRUCTOR
     //////////////////////////////////////////////////////////////*/
-    /// @notice Creates an Sofamon Nouns NFT
-    /// @param _name The name of the token.
-    /// @param _symbol The Symbol of the token.
-    /// @param _baseURI The baseURI for the token that will be used for metadata.
     constructor(
         string memory _name,
         string memory _symbol,
@@ -86,6 +82,9 @@ contract SofamonNouns is ERC721, Ownable {
         }
     }
 
+    /*///////////////////////////////////////////////////////////////
+                               TOKEN URI
+    //////////////////////////////////////////////////////////////*/
     function tokenURI(uint256 id) public view override returns (string memory) {
         if (_ownerOf[id] == address(0)) {
             revert DoesNotExist();
@@ -97,7 +96,6 @@ contract SofamonNouns is ERC721, Ownable {
     /*///////////////////////////////////////////////////////////////
                             ETH WITHDRAWAL
     //////////////////////////////////////////////////////////////*/
-    /// @notice Withdraw all ETH from the contract to the vault addres.
     function withdraw() external onlyOwner {
         if (address(this).balance == 0) revert NoEthBalance();
         SafeTransferLib.safeTransferETH(msg.sender, address(this).balance);
