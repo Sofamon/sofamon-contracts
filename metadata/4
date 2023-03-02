@@ -1,18 +1,18 @@
 {
-    "name": "Sofamon #3",
-    "image": "ipfs://QmPG5jTLQX6j3ckzStdSTb1gLJKkNW4xhtJ8vs5mVPk5PJ",
+    "name": "Sofamon #4",
+    "image": "ipfs://Qmf3yM4CXgXYHaVWZCM6b6BnbkopQ2m9TdnoqCVmD6xEoZ",
     "attributes": [
         {
             "trait_type": "Type",
-            "value": "Nouns"
+            "value": "Bunny"
         },
         {
             "trait_type": "Character",
-            "value": "Nouns Shark"
+            "value": "Bunny"
         },
         {
             "trait_type": "Collection",
-            "value": "Nouns"
+            "value": "Bunny"
         }
     ]
 }

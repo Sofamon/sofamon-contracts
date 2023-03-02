@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/utils/cryptography/ECDSA.sol";
 import "solmate/tokens/ERC1155.sol";
 import "solmate/utils/LibString.sol";
 
-contract Shimeji is ERC1155, Ownable {
+contract Sofamon is ERC1155, Ownable {
     using ECDSA for bytes32;
 
     string public baseMetadataURI;
@@ -32,20 +32,6 @@ contract Shimeji is ERC1155, Ownable {
       for (uint i = 0; i < _bb.length; i++) bab[k++] = _bb[i];
       return string(bab);
     }
-
-    // function mint(uint256 tokenId, uint256 amount, address to, uint256 nonce, bytes memory signature) public {
-    //     bytes32 hash = keccak256(abi.encodePacked(tokenId, amount, to, nonce));
-    //     bytes32 messageHash = hash.toEthSignedMessageHash();
-    //     address signer = messageHash.recover(signature);
-    //     require(signer == owner(), "Not signed by owner");
-    //     require(!signatureUsed[signature] , "Signature already used");
-    //     signatureUsed[signature] = true;
-    //     _mint(to, tokenId, amount, "");
-    // }
-
-    // function mint(uint256 tokenId, uint256 amount, address to) public onlyOwner {
-    //     _mint(to, tokenId, amount, "");
-    // }
 
     function mint(uint256 tokenId, uint256 amount, address to) public {
         _mint(to, tokenId, amount, "");

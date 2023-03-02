@@ -2,15 +2,15 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../src/Shimeji.sol";
+import "../src/Sofamon.sol";
 
-contract ShimejiTest is Test {
+contract SofamonTest is Test {
     using stdStorage for StdStorage;
 
-    Shimeji private nft;
+    Sofamon private nft;
 
     function setUp() public {
         // Deploy NFT contract
-        nft = new Shimeji();
+        nft = new Sofamon();
     }
 }
