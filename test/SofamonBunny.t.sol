@@ -10,15 +10,15 @@
 pragma solidity ^0.8.13;
 
 import "forge-std/Test.sol";
-import "../src/SofamonNouns.sol";
+import "../src/SofamonBunny.sol";
 
-contract SofamonNounsTest is Test {
+contract SofamonBunnyTest is Test {
     using stdStorage for StdStorage;
 
-    SofamonNouns private nouns;
+    SofamonBunny private bunny;
 
     function setUp() public {
         // Deploy NFT contract
-        nouns = new SofamonNouns("SOFANOUNS", "SOFA");
+        bunny = new SofamonBunny("SOFABUNNY", "SOFA");
     }
 }
