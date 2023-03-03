@@ -19,6 +19,6 @@ contract SofamonNounsTest is Test {
 
     function setUp() public {
         // Deploy NFT contract
-        nft = new SofamonNouns("SOFANOUNS", "SOFA", "");
+        nft = new SofamonNouns("SOFANOUNS", "SOFA");
     }
 }

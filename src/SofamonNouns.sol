@@ -53,13 +53,10 @@ contract SofamonNouns is ERC721, Ownable {
     /*///////////////////////////////////////////////////////////////
                                CONSTRUCTOR
     //////////////////////////////////////////////////////////////*/
-    constructor(
-        string memory _name,
-        string memory _symbol,
-        string memory _baseURI
-    ) payable ERC721(_name, _symbol) {
-        baseURI = _baseURI;
-    }
+    constructor(string memory _name, string memory _symbol)
+        payable
+        ERC721(_name, _symbol)
+    {}
 
     /*///////////////////////////////////////////////////////////////
                                MINT FUNCTION
@@ -94,12 +91,31 @@ contract SofamonNouns is ERC721, Ownable {
     /*///////////////////////////////////////////////////////////////
                                TOKEN URI
     //////////////////////////////////////////////////////////////*/
+    function setURI(string memory _baseURI) public onlyOwner {
+        baseURI = _baseURI;
+    }
+
     function tokenURI(uint256 id) public view override returns (string memory) {
         if (_ownerOf[id] == address(0)) {
             revert DoesNotExist();
         }
 
-        return string(abi.encodePacked(baseURI, id));
+        return strConcat(baseURI, LibString.toString(id));
+    }
+
+    function strConcat(string memory _a, string memory _b)
+        internal
+        pure
+        returns (string memory)
+    {
+        bytes memory _ba = bytes(_a);
+        bytes memory _bb = bytes(_b);
+        string memory ab = new string(_ba.length + _bb.length);
+        bytes memory bab = bytes(ab);
+        uint256 k = 0;
+        for (uint256 i = 0; i < _ba.length; i++) bab[k++] = _ba[i];
+        for (uint256 i = 0; i < _bb.length; i++) bab[k++] = _bb[i];
+        return string(bab);
     }
 
     /*///////////////////////////////////////////////////////////////
